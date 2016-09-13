@@ -8,7 +8,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.danielbrinker.android.aca.mongoose.MainActivity"
-    android:background="@color/material_deep_teal_200">
+    android:background="#a5f1ea">
 
     <LinearLayout
         android:orientation="vertical"
@@ -29,7 +29,9 @@
                 android:layout_alignParentTop="true"
                 android:layout_centerHorizontal="true"
                 android:hint="Name"
-                android:textColor="#000000"/>
+                android:textColor="#000000"
+                android:textColorHint="#065750"
+                android:backgroundTint="#065750" />
 
             <EditText
                 android:layout_width="wrap_content"
@@ -40,7 +42,10 @@
                 android:layout_centerVertical="true"
                 android:layout_centerHorizontal="true"
                 android:hint="Phone Number"
-                android:textColor="#000000"/>
+                android:textColor="#000000"
+                android:textColorHint="#065750"
+                android:backgroundTint="#065750"
+                android:phoneNumber="false" />
 
             <EditText
                 android:layout_width="wrap_content"
@@ -51,7 +56,10 @@
                 android:layout_alignParentBottom="true"
                 android:layout_centerHorizontal="true"
                 android:hint="Address"
-                android:textColor="#000000"/>
+                android:textColor="#000000"
+                android:textColorHint="#065750"
+                android:backgroundTint="#065750"
+                android:typeface="sans" />
         </RelativeLayout>
 
         <RelativeLayout
@@ -67,7 +75,8 @@
                 android:layout_alignParentTop="true"
                 android:layout_centerHorizontal="true"
                 android:background="#ffffff"
-                android:textColor="#000000"/>
+                android:textColor="#088b7f"
+                android:layout_marginTop="5dp" />
 
 
 
@@ -76,8 +85,11 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:id="@+id/userInput"
-                android:layout_centerVertical="true"
-                android:layout_centerHorizontal="true" />
+                android:layout_below="@id/displayButton"
+                android:layout_centerHorizontal="true"
+                android:textSize="17sp"
+                android:layout_marginTop="10dp"
+                android:textColor="#065750" />
 
             <ImageButton
                 android:layout_width="wrap_content"
@@ -88,7 +100,8 @@
                 android:layout_alignParentStart="true"
                 android:src="@drawable/maps"
                 android:adjustViewBounds="false"
-                android:onClick="processClicks" />
+                android:onClick="processClicks"
+                android:background="@android:color/white" />
 
             <ImageButton
                 android:layout_width="wrap_content"
@@ -98,7 +111,9 @@
                 android:layout_alignParentRight="true"
                 android:layout_alignParentEnd="true"
                 android:src="@drawable/phone"
-                android:onClick="processClicks" />
+                android:onClick="processClicks"
+                android:background="@android:color/white"
+                android:cropToPadding="false" />
         </RelativeLayout>
     </LinearLayout>
 </RelativeLayout>

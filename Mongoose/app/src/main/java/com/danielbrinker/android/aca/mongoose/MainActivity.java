@@ -1,115 +1,65 @@
 package com.danielbrinker.android.aca.mongoose;
 
-import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.content.Intent;
+import android.net.Uri;
+import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
+    public EditText mNameText;
+    public EditText mPhoneText;
+    public EditText mAddressText;
+    public TextView mUserInput; //Actually the output
+    public Button mDisplayButton;
+    public String addressText;
 
-
-    public class MainActivity extends AppCompatActivity {
-
-        TextView mName;
-        TextView mPhone;
-        TextView mAddress;
-        TextView mOutputTextView;
-        Button mConvertButton;
-
-
-        @Override
+  @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_main);
 
-            mName = (TextView) findViewById(R.id.nameText);
-            mPhone = (TextView) findViewById(R.id.phoneText);
-            mAddress = (TextView) findViewById(R.id.addressText);
-            mOutputTextView = (TextView) findViewById(R.id.outputText);
+            mNameText = (EditText) findViewById(R.id.nameText);
+            mPhoneText = (EditText) findViewById(R.id.phoneText);
+            mAddressText = (EditText) findViewById(R.id.addressText);
+            mUserInput = (TextView) findViewById(R.id.userInput);
             mDisplayButton = (Button) findViewById(R.id.displayButton);
-            mMapButton = (Button) findViewById(R.id.mapButton);
-            mExtraButton = (Button) findViewById(R.id.displayButton);
-
 
             mDisplayButton.setOnClickListener(new View.OnClickListener() {
-                String name;
-                String phoneNum;
-                String yourAddress;
+                String nameText;
+                String phoneText;
 
                 @Override
                 public void onClick(View view) {
-
-
-                    if (!mName.getText().toString().equals("")) {
-                        name = mName.getText().toString();
-
-
-                        mOutputTextView.setText(name);
-
-
-                    } else if (!mPhone.getText().toString().equals("")) {
-                        phoneNum = mPhone.getText().toString();
-
-                    }
-
-                    else if (!mAddress.getText().toString().equals("")) {
-                        yourAddress = mAddress.getText().toString();
-
-                    }
-
-                    mOutputTextView.setText(name + "\\s " + phoneNum + "\\s" + yourAddress);
-
+                    nameText = mNameText.getText().toString();
+                    phoneText = mPhoneText.getText().toString();
+                    addressText = mAddressText.getText().toString();
+                    mUserInput.setText(nameText + "\n" + phoneText + "\n" + addressText);
 
                 }
         });
 
-    /*@Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
-
-        mEditText1 = (EditText) findViewById(R.id.editText1);
-        mResultText2 = (TextView) findViewById(R.id.resultText2);
-
-
-        mEditText2 = (EditText) findViewById(R.id.editText2);
-        mResultText2 = (TextView) findViewById(R.id.resultText2);
-
-
-        mEditText3 = (EditText) findViewById(R.id.editText3);
-        mResultText3 = (TextView) findViewById(R.id.resultText3);
-
-
-
-        mConvertButton = (Button) findViewById(R.id.convertButton);
-
     }
-
     public void processClicks(View display) {
         Intent action = null;
         int id = display.getId();
 
         switch (id) {
-            case (R.id.imageButton):
+            case (R.id.extraButton):
                 action = new Intent(Intent.ACTION_DIAL,
-                        Uri.parse("tel: 877-446-6723"));
+                        Uri.parse("tel: 248-434-5508"));
                 break;
-            case (R.id.imageButton2):
+            case (R.id.mapButton):
                 action = new Intent(Intent.ACTION_VIEW,
-                        Uri.parse("http://www.noradsanta.org"));
-                break;
-            case (R.id.imageButton3):
-                action = new Intent(Intent.ACTION_VIEW,
-                        Uri.parse("geo:0,0?q=101 Saint Nicholas Dr.," + " North Pole, AK"));
+                        Uri.parse("geo:0,0?q=" + addressText));
                 break;
             default:
                 break;
         }
         startActivity(action);
-    } */
-
-}}
+    }
 }
